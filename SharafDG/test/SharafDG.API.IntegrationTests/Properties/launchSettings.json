@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SharafDG.API.IntegrationTests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
