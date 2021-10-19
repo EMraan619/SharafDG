@@ -1,5 +1,6 @@
 using FluentValidation;
 using SharafDG.Application.Contracts.Persistence;
+using SharafDG.Application.Features.SME.Commands;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,5 +37,7 @@ namespace SharafDG.Application.Features.Events.Commands.CreateEvent
         {
             return !(await _eventRepository.IsEventNameAndDateUnique(e.Name, e.Date));
         }
+
+       
     }
 }
