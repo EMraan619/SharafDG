@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SharafDG.Application.Features.SME.Command.DeleteSMEUser;
 using SharafDG.Application.Features.SME.Commands.UpdateSME;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,17 @@ namespace SharafDG.Api.Controllers.v1
         {
             var response = await _mediator.Send(updateSMECommand);
             return Ok(response);
+        }
+
+        [HttpDelete("{id}", Name = "DeleteSMEUser")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var deleteEventCommand = new DeleteSMEUserCommand() { SMEId = id };
+            await _mediator.Send(deleteEventCommand);
+            return NoContent();
         }
     }
 }
