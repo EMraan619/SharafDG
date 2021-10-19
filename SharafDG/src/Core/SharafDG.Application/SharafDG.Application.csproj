@@ -20,5 +20,9 @@
   <ItemGroup>
     <ProjectReference Include="..\SharafDG.Domain\SharafDG.Domain.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Features\SME\Queries\" />
+  </ItemGroup>
 
 </Project>

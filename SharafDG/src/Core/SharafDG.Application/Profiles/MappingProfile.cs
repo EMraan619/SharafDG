@@ -8,6 +8,9 @@ using SharafDG.Application.Features.Events.Queries.GetEventDetail;
 using SharafDG.Application.Features.Events.Queries.GetEventsExport;
 using SharafDG.Application.Features.Events.Queries.GetEventsList;
 using SharafDG.Application.Features.Orders.GetOrdersForMonth;
+
+using SharafDG.Application.Features.SME.Commands;
+using SharafDG.Application.Features.SME.Commands.CreateSME;
 using SharafDG.Application.Features.SME.Commands.UpdateSME;
 using SharafDG.Application.Features.SME.Queries;
 using SharafDG.Domain.Entities;
@@ -36,6 +39,9 @@ namespace SharafDG.Application.Profiles
             CreateMap<Order, OrdersForMonthDto>();
 
             CreateMap<Event, EventListVm>().ConvertUsing<EventVmCustomMapper>();
+
+            CreateMap<SMEUser, CreateSMECommand>();
+            CreateMap<SMEUser, CreateSMEDto>();
         }
     }
 }

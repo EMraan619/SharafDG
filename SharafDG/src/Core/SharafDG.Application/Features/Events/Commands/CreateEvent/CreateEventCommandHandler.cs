@@ -1,8 +1,11 @@
 using AutoMapper;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using SharafDG.Application.Contracts.Infrastructure;
 using SharafDG.Application.Contracts.Persistence;
+using SharafDG.Application.Features.SME.Commands;
+using SharafDG.Application.Features.SME.Commands.CreateSME;
 using SharafDG.Application.Models.Mail;
 using SharafDG.Application.Responses;
 using SharafDG.Domain.Entities;
@@ -60,5 +63,6 @@ namespace SharafDG.Application.Features.Events.Commands.CreateEvent
 
             return response;
         }
+       
     }
 }
