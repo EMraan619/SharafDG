@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SharafDG.Application.Features.SME.Commands.UpdateSME;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,16 @@ namespace SharafDG.Api.Controllers.v1
         {
             _mediator = mediator;
             _logger = logger;
+        }
+
+        [HttpPut(Name = "UpdateSME")]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Update([FromBody] UpdateSMECommand updateSMECommand)
+        {
+            var response = await _mediator.Send(updateSMECommand);
+            return Ok(response);
         }
     }
 }
