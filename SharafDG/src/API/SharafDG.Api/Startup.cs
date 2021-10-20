@@ -2,28 +2,23 @@ using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
 using SharafDG.Api.Extensions;
 using SharafDG.Api.Middleware;
 using SharafDG.Api.Services;
 using SharafDG.Api.SwaggerHelper;
-using SharafDG.Api.Utility;
 using SharafDG.Application;
 using SharafDG.Application.Contracts;
 using SharafDG.Identity;
 using SharafDG.Infrastructure;
 using SharafDG.Persistence;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System;
-using System.Collections.Generic;
+using SharafDG.Application.Contracts.Infrastructure;
+using SharafDG.Infrastructure.Mail;
 
 namespace SharafDG.Api
 {
@@ -37,6 +32,10 @@ namespace SharafDG.Api
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailService, MailService>();
+
+
             string Urls = Configuration.GetSection("URLWhiteListings").GetSection("URLs").Value;
             services.AddCors(options =>
             {
