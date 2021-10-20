@@ -47,7 +47,7 @@ namespace SharafDG.Api.Controllers.v1
             var mailObj = new Email()
             {
                 To = register.Email,
-                Body = "Your Account has been created Successfully",
+                Body = $"Your Account has been created Successfully\n Email:{register.Email}\nPassword:{register.Password}",
                 Subject = "Account Created!!"
             };
             try

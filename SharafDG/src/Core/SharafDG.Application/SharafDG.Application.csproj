@@ -2,6 +2,7 @@
 
   <PropertyGroup>
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <UserSecretsId>1167f26b-df1d-41cc-891d-7c8e0c89b4b2</UserSecretsId>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -12,6 +13,7 @@
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" Version="5.0.9" />
 		<PackageReference Include="Microsoft.AspNetCore.DataProtection.Extensions" Version="3.1.10" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.13" />
 		<!--<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />-->
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.10" />
 		<PackageReference Include="System.Text.Json" Version="4.7.2" />
