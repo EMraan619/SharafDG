@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SharafDG.Application.Contracts.Infrastructure;
+using SharafDG.Application.Models.Mail;
 
 namespace SharafDG.Application.Features.SME.Commands.CreateSME
 {
@@ -15,13 +17,13 @@ namespace SharafDG.Application.Features.SME.Commands.CreateSME
     {
         private readonly IAsyncRepository<SMEUser> _smeRepository;
         private readonly IMapper _mapper;
-
-        public CreateSMECommandHandler(IMapper mapper, IAsyncRepository<SMEUser> smeRepository)
+        private readonly IMailService email;
+        public CreateSMECommandHandler(IMapper mapper, IAsyncRepository<SMEUser> smeRepository, IMailService email)
         {
             _mapper = mapper;
             _smeRepository = smeRepository;
+            this.email = email;
         }
-
         public async Task<Response<CreateSMEDto>> Handle(CreateSMECommand request, CancellationToken cancellationToken)
         {
             var createSMECommandResponse = new Response<CreateSMEDto>();
@@ -59,8 +61,21 @@ namespace SharafDG.Application.Features.SME.Commands.CreateSME
                 createSMECommandResponse.Succeeded = true;
                 createSMECommandResponse.Message = "success";
 
+               
             }
             return createSMECommandResponse;
         }
+        /*{
+    "name": "aman",
+    "email": "rjamans18@gmail.com",
+    "password": "Aman123",
+    "typeOfBusiness": "private",
+    "companyName": "aman",
+    "companyAddress": "xyz",
+    "companyPhone": 123450,
+    "companyWebsite": "aman.com",
+    "phoneNumber": 9999999999,
+    "alternateNumber": 0
+  }*/
     }
 }

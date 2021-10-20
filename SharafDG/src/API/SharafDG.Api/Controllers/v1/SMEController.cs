@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using SharafDG.Application.Models.SME;
 using SharafDG.Application.Features.SME.Commands;
+using SharafDG.Application.Models.Mail;
+using SharafDG.Application.Contracts.Infrastructure;
 
 namespace SharafDG.Api.Controllers.v1
 {
@@ -20,11 +22,14 @@ namespace SharafDG.Api.Controllers.v1
     {
         private readonly IMediator _mediator;
         private readonly ILogger _logger;
+        private readonly IMailService email;
 
-        public SMEController(IMediator mediator, ILogger<SMEController> logger)
+
+        public SMEController(IMediator mediator, ILogger<SMEController> logger, IMailService email)
         {
             _mediator = mediator;
             _logger = logger;
+            this.email = email;
         }
 
         [HttpGet]
@@ -33,13 +38,27 @@ namespace SharafDG.Api.Controllers.v1
             return "Hello from SME";
         }
 
-        [HttpPost("SME/Register")]
+        [HttpPost("Register")]
         public async Task<ActionResult> RegisterAsSME([FromBody] CreateSMECommand register)
         {
             _logger.LogInformation("Register as SME Initiated");
             var response = await _mediator.Send(register);
             _logger.LogInformation("Register Completed");
-            return Ok(response);
+            var mailObj = new Email()
+            {
+                To = register.Email,
+                Body = "Your Account has been created Successfully",
+                Subject = "Account Created!!"
+            };
+            try
+            {
+                await email.SendEmailAsync(mailObj);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         [HttpPut(Name = "UpdateSME")]
