@@ -42,26 +42,27 @@ namespace SharafDG.Application.Features.SME.Commands.CreateSME
             }
             else
             {
-                var sme = new SMEUser()
-                {
-                    Name = request.Name,
-                    Email = request.Email,
-                    Password = request.Password,
-                    PhoneNumber = request.PhoneNumber,
-                    CompanyName = request.CompanyName,
-                    CompanyAddress = request.CompanyAddress,
-                    CompanyPhone = request.CompanyPhone,
-                    CompanyWebsite = request.CompanyWebsite,
-                    AlternateNumber = request.AlternateNumber,
-                    TypeOfBusiness = request.TypeOfBusiness
-                };
-
+              
+                var sme = _mapper.Map<SMEUser>(request);
                 sme = await _smeRepository.AddAsync(sme);
                 createSMECommandResponse.Data = _mapper.Map<CreateSMEDto>(sme);
                 createSMECommandResponse.Succeeded = true;
                 createSMECommandResponse.Message = "success";
+                var mailObj = new Email()
+                {
+                    To = request.Email,
+                    Body = $"Your Account has been created Successfully on SharafDg.<br><br>Following are the login credentials. <br>Email : {request.Email} <br>Password : {request.Password}<br><br><b style='color:red;'>Note :- Do not share this credentials</b>.",
+                    Subject = "Account Created!!"
+                };
+                try
+                {
+                    await email.SendEmailAsync(mailObj);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
 
-               
             }
             return createSMECommandResponse;
         }

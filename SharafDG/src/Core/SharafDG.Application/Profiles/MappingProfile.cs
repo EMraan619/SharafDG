@@ -35,7 +35,7 @@ namespace SharafDG.Application.Profiles
 
             CreateMap<SMEUser, UpdateSMECommand>().ReverseMap();
             CreateMap<SMEUser, SMEDetailVm>();
-
+            CreateMap<CreateSMECommand, SMEUser>().ReverseMap();
             CreateMap<Order, OrdersForMonthDto>();
 
             CreateMap<Event, EventListVm>().ConvertUsing<EventVmCustomMapper>();

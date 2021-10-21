@@ -44,21 +44,7 @@ namespace SharafDG.Api.Controllers.v1
             _logger.LogInformation("Register as SME Initiated");
             var response = await _mediator.Send(register);
             _logger.LogInformation("Register Completed");
-            var mailObj = new Email()
-            {
-                To = register.Email,
-                Body = $"Your Account has been created Successfully\n Email:{register.Email}\nPassword:{register.Password}",
-                Subject = "Account Created!!"
-            };
-            try
-            {
-                await email.SendEmailAsync(mailObj);
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return Ok(response);
         }
 
         [HttpPut(Name = "UpdateSME")]
