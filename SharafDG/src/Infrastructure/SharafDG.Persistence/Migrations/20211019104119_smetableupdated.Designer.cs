@@ -3,45 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SharafDG.Persistence;
 
 namespace SharafDG.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211019104119_smetableupdated")]
+    partial class smetableupdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.Bank", b =>
-                {
-                    b.Property<int>("BankId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AccountHolderName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("AccountNumber")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("BankName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IfscCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BankId");
-
-                    b.ToTable("Banks");
-                });
 
             modelBuilder.Entity("SharafDG.Domain.Entities.Category", b =>
                 {
@@ -152,7 +130,7 @@ namespace SharafDG.Persistence.Migrations
                             Artist = "John Egbert",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2022, 4, 20, 13, 36, 34, 721, DateTimeKind.Local).AddTicks(5407),
+                            Date = new DateTime(2022, 4, 19, 16, 11, 18, 227, DateTimeKind.Local).AddTicks(227),
                             Description = "Join John for his farwell tour across 15 continents. John really needs no introduction since he has already mesmerized the world with his banjo.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/banjo.jpg",
                             Name = "John Egbert Live",
@@ -164,7 +142,7 @@ namespace SharafDG.Persistence.Migrations
                             Artist = "Michael Johnson",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2022, 7, 20, 13, 36, 34, 722, DateTimeKind.Local).AddTicks(8646),
+                            Date = new DateTime(2022, 7, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(4044),
                             Description = "Michael Johnson doesn't need an introduction. His 25 concert across the globe last year were seen by thousands. Can we add you to the list?",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/michael.jpg",
                             Name = "The State of Affairs: Michael Live!",
@@ -176,7 +154,7 @@ namespace SharafDG.Persistence.Migrations
                             Artist = "DJ 'The Mike'",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2022, 2, 20, 13, 36, 34, 722, DateTimeKind.Local).AddTicks(8766),
+                            Date = new DateTime(2022, 2, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(4273),
                             Description = "DJs from all over the world will compete in this epic battle for eternal fame.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/dj.jpg",
                             Name = "Clash of the DJs",
@@ -188,7 +166,7 @@ namespace SharafDG.Persistence.Migrations
                             Artist = "Manuel Santinonisi",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2022, 2, 20, 13, 36, 34, 722, DateTimeKind.Local).AddTicks(8802),
+                            Date = new DateTime(2022, 2, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(4309),
                             Description = "Get on the hype of Spanish Guitar concerts with Manuel.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/guitar.jpg",
                             Name = "Spanish guitar hits with Manuel",
@@ -200,7 +178,7 @@ namespace SharafDG.Persistence.Migrations
                             Artist = "Many",
                             CategoryId = new Guid("fe98f549-e790-4e9f-aa16-18c2292a2ee9"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2022, 8, 20, 13, 36, 34, 722, DateTimeKind.Local).AddTicks(8832),
+                            Date = new DateTime(2022, 8, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(4336),
                             Description = "The best tech conference in the world",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/conf.jpg",
                             Name = "Techorama 2021",
@@ -212,7 +190,7 @@ namespace SharafDG.Persistence.Migrations
                             Artist = "Nick Sailor",
                             CategoryId = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2022, 6, 20, 13, 36, 34, 722, DateTimeKind.Local).AddTicks(8867),
+                            Date = new DateTime(2022, 6, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(4368),
                             Description = "The critics are over the moon and so will you after you've watched this sing and dance extravaganza written by Nick Sailor, the man from 'My dad and sister'.",
                             ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/musical.jpg",
                             Name = "To the Moon and Back",
@@ -261,7 +239,7 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("7e94bc5b-71a5-4c8c-bc3b-71bb7976237e"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(169),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(5862),
                             OrderTotal = 400,
                             UserId = new Guid("a441eb40-9636-4ee6-be49-a66c5ec1330b")
                         },
@@ -270,7 +248,7 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("86d3a045-b42d-4854-8150-d6a374948b6e"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(1014),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(6743),
                             OrderTotal = 135,
                             UserId = new Guid("ac3cfaf5-34fd-4e4d-bc04-ad1083ddc340")
                         },
@@ -279,7 +257,7 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("771cca4b-066c-4ac7-b3df-4d12837fe7e0"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(1069),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(6798),
                             OrderTotal = 85,
                             UserId = new Guid("d97a15fc-0d32-41c6-9ddf-62f0735c4c1c")
                         },
@@ -288,7 +266,7 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("3dcb3ea0-80b1-4781-b5c0-4d85c41e55a6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(1096),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(6825),
                             OrderTotal = 245,
                             UserId = new Guid("4ad901be-f447-46dd-bcf7-dbe401afa203")
                         },
@@ -297,7 +275,7 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("e6a2679c-79a3-4ef1-a478-6f4c91b405b6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(1121),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(6849),
                             OrderTotal = 142,
                             UserId = new Guid("7aeb2c01-fe8e-4b84-a5ba-330bdf950f5c")
                         },
@@ -306,7 +284,7 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("f5a6a3a0-4227-4973-abb5-a63fbe725923"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(1149),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(6877),
                             OrderTotal = 40,
                             UserId = new Guid("f5a6a3a0-4227-4973-abb5-a63fbe725923")
                         },
@@ -315,31 +293,10 @@ namespace SharafDG.Persistence.Migrations
                             Id = new Guid("ba0eb0ef-b69b-46fd-b8e2-41b4178ae7cb"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2021, 10, 20, 13, 36, 34, 723, DateTimeKind.Local).AddTicks(1173),
+                            OrderPlaced = new DateTime(2021, 10, 19, 16, 11, 18, 228, DateTimeKind.Local).AddTicks(6900),
                             OrderTotal = 116,
                             UserId = new Guid("7aeb2c01-fe8e-4b84-a5ba-330bdf950f5c")
                         });
-                });
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.Role", b =>
-                {
-                    b.Property<int>("RoleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("RoleName")
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("SharafDG.Domain.Entities.SMEUser", b =>
@@ -370,6 +327,9 @@ namespace SharafDG.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NickName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
@@ -384,148 +344,11 @@ namespace SharafDG.Persistence.Migrations
                     b.ToTable("SMEUsers");
                 });
 
-            modelBuilder.Entity("SharafDG.Domain.Entities.User", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("PhoneNumber")
-                        .HasColumnType("bigint")
-                        .HasMaxLength(10);
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.UserDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BankId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CompanyAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyLogo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyWebsite")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeOfBussiness")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserDetails");
-                });
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.UserRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte>("isActive")
-                        .HasColumnType("tinyint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserRoles");
-                });
-
             modelBuilder.Entity("SharafDG.Domain.Entities.Event", b =>
                 {
                     b.HasOne("SharafDG.Domain.Entities.Category", "Category")
                         .WithMany("Events")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.Role", b =>
-                {
-                    b.HasOne("SharafDG.Domain.Entities.User", null)
-                        .WithMany("Roles")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.UserDetail", b =>
-                {
-                    b.HasOne("SharafDG.Domain.Entities.Bank", "Bank")
-                        .WithMany()
-                        .HasForeignKey("BankId");
-
-                    b.HasOne("SharafDG.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SharafDG.Domain.Entities.UserRole", b =>
-                {
-                    b.HasOne("SharafDG.Domain.Entities.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SharafDG.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
